@@ -115,3 +115,24 @@ const result2 = reduce(add,[2,10,5])
 console.log(result) // 26
 console.log(result2) // 17
 ```
+
+<br/>
+
+### map + filter + reduce 중첩사용
+
+``` javascript
+const add = (a,b) => a + b;
+
+const products = [
+  {name: "반팔티", price: 15000},
+  {name: "긴팔티", price: 13000},
+  {name: "핸드폰 케이스", price: 20000},
+  {name: "후드티", price: 18000},
+  {name: "바지", price: 9000},
+]
+
+reduce(
+  add, 
+  map(item => item.price, 
+      filter(item => item.price > 16000, products))) // 38000
+```
