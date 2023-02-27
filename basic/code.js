@@ -170,3 +170,14 @@ const getQueryString_ver4 = pipe(
 );
 
 getQueryString_ver4({ limit: 10, offset: 10, type: 'male' });
+
+const find = (f, iter) => go(iter, newFilter(f), take(1), ([a]) => a);
+
+const users = [{ age: 32 }, { age: 30 }, { age: 28 }, { age: 15 }, { age: 31 }];
+
+console.log(
+  // {age: 32}
+  find((a) => {
+    return a.age > 30;
+  }, users)
+);
